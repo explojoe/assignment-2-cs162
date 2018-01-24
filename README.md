@@ -3,7 +3,7 @@
 
 **Demos due by 11:59pm on Monday, 2/19/2017**
 
-The goals of this assignment is to start working with C++ classes.  Follow the directions below, and make sure your source code files (**no executable files, `.o` files, or other crufty stuff**) are committed and pushed back into your repository on GitHub to earn credit for the assignment.
+The goals of this assignment is to start working with C++ classes and class composition (the "has-a" relationship).  Follow the directions below, and make sure your source code files (**no executable files, `.o` files, or other crufty stuff**) are committed and pushed back into your repository on GitHub to earn credit for the assignment.
 
 ## Go Fish game
 
