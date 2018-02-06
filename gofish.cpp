@@ -163,7 +163,7 @@ int main(int argc, char *argv[]){
 		cout << "Would you like to play again?[Y/n]" << endl;
 		char input;
 		cin >> input;
-		if(int(toupper(input)) != 'Y'){
+		if(int(toupper(input)) == 'N'){
 			cout << "See you another time." << endl;
 			break;
 		}
