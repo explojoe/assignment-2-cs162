@@ -1,10 +1,10 @@
 /*********************************************************************
-** Program Filename: econdata.cpp
+** Program Filename: Game.cpp
 ** Author: Joshua Wentzel
-** Date: 1/22/2018
-** Description: Explore state and county economic data.
-** Input: Path to file containing state and county economic data.
-** Output: Statistics on state and county economic data.
+** Date: 2/4/2018
+** Description: Play Go Fish vs. the computer.
+** Input: Playing cards to guess for.
+** Output: Go Fish gameplay.
 *********************************************************************/
 
 #include <iostream>
@@ -17,17 +17,17 @@
 #include "Player.hpp"
 #include "Game.hpp"
 #include "Hand.hpp"
+
 using namespace std;
 
 Game::Game(){}
+
 Player* Game::getPlayer(int index){
 	return &players[index];
 }
+
 Deck Game::getDeck(){return cards;}
 
-
-
-// move these into Game VVVVVVVVVVVVVVVVVVVV
 bool Game::moveCardsFromToOf(bool playerIsStealing, int rank){
 	Player* playerSrc;
 	Player* playerDst;
@@ -45,19 +45,15 @@ bool Game::moveCardsFromToOf(bool playerIsStealing, int rank){
 	Card* CardsSrc = handSrc->getCards();
 	Card* CardsDst = handDst->getCards();
 	bool stoleFlag = false;
-	//while(1){
-		for(int i = 0; i < handSrc->getNumCards(); i++){
-			if(CardsSrc[i].getRank() == rank){
-				stoleFlag = true;
-				//cout << "||||||||||||||||||||||Moved a " << ranks[rank] << endl;
-				handDst->addCard(CardsSrc[i]);
-				handSrc->removeCard(i);
-				i--;
-				//continue;
-			}
+	for(int i = 0; i < handSrc->getNumCards(); i++){
+		if(CardsSrc[i].getRank() == rank){
+			stoleFlag = true;
+			handDst->addCard(CardsSrc[i]);
+			handSrc->removeCard(i);
+			i--;
+			//continue;
 		}
-		//break;
-	//}
+	}
 	
 	return stoleFlag;
 }
@@ -83,20 +79,11 @@ bool Game::checkGameOver(){
 		{
 			cout << "You have lost the game!" << endl;
 		}
-		//freeMemory();
+		
 		return true;
-		//exit(0);
 	}
 	return false;
 }
 
-//void Game::freeMemory(){
-	//players[0].freeMemory();
-	//players[1].freeMemory();
-//}
-
-Game::~Game(){
-	//delete players[0];
-	//delete players[1];
-}
+Game::~Game(){}
 

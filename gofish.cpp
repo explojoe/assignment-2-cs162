@@ -1,10 +1,10 @@
 /*********************************************************************
-** Program Filename: econdata.cpp
+** Program Filename: gofish.cpp
 ** Author: Joshua Wentzel
-** Date: 1/22/2018
-** Description: Explore state and county economic data.
-** Input: Path to file containing state and county economic data.
-** Output: Statistics on state and county economic data.
+** Date: 2/4/2018
+** Description: Play Go Fish vs. the computer.
+** Input: Playing cards to guess for.
+** Output: Go Fish gameplay.
 *********************************************************************/
 
 
@@ -22,25 +22,29 @@
 
 using namespace std;
 
-
-
-
+// an array containing the english words used to represent cards
 std::string ranks_p2[13] = {"twos", "threes", "fours", "fives", "sixes", "sevens",
 	"eights", "nines","tens", "jacks", "queens", "kings", "aces"};
 
 int main(int argc, char *argv[]){
-
 	// initialize the game
-	srand (time(NULL));
+	srand (time(NULL));	// randomize the seed so that games are random
+	
 	cout << "Welcome to Go Fish! This is the reel deal!" << endl;
+	
 	Game* game = new Game();
+	
 	Deck deck = game->getDeck();
+	
 	deck.shuffle();
+	
 	Player* player1 = game->getPlayer(0);	// player1 is human player
 	Player* player2 = game->getPlayer(1);	// player2 is computer player
 	
+	//deal the initial cards
 	deck.deal(player1,7);
 	deck.deal(player2,7);
+	
 	// initialization complete, let the game begin!
 	
 	int cur_player = rand() % 2;
@@ -53,15 +57,12 @@ int main(int argc, char *argv[]){
 	
 	player1->checkForBooks(true);
 	player2->checkForBooks(true);
+	
 	while(1){
-		
-		
-		
 		cout << endl << endl;
 		cout << "--------------------------------" << endl;
 		cout << endl;
 		
-
 		bool breakFlag = false;
 		if(cur_player == 0){
 
@@ -70,9 +71,6 @@ int main(int argc, char *argv[]){
 				cout << "Computer's books:" << endl;
 				player2->printBooks();
 
-				
-				cout << "get rank" << endl;
-				//int rank = player1->randPickCard();
 				int rank = player1->askForChoice();
 				if(rank == -1){
 					cout << "Your are out of cards." << endl;
@@ -92,7 +90,6 @@ int main(int argc, char *argv[]){
 						else{
 							breakFlag = true;
 						}
-							
 					}
 					else{
 						cout << "Good guess. Go again!" << endl;
@@ -111,7 +108,7 @@ int main(int argc, char *argv[]){
 		}
 		else
 		{
-			// computer turn
+			// computer's turn
 			cout << "The computer is taking its turn." << endl;
 			
 			while(1){

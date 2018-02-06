@@ -11,7 +11,6 @@ class Player {
 	public:
 		// must have constructors, destructor, accessor methods, and mutator methods
 		Player();
-		
 		Hand* getHand();
 		int askForChoice();
 		int randPickCard();
@@ -19,7 +18,5 @@ class Player {
 		int getNumBooks();
 		void checkForBooks(bool);
 		~Player();
-		//void freeMemory();
 };
-
 #endif

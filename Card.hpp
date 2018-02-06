@@ -12,15 +12,12 @@ class Card {
 		bool booked;
 	public:
 		// must have constructors, destructor, accessor methods, and mutator methods
-		
-	Card();
-	Card(int, int);
-	
-	void initialize(int, int);
-	
-	int getRank();
-	int getSuit();
-	bool getIsBooked();
-	void book();
+		Card();
+		Card(int, int);
+		void initialize(int, int);
+		int getRank();
+		int getSuit();
+		bool getIsBooked();
+		void book();
 };
 #endif
