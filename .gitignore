@@ -1,0 +1,4 @@
+*.o
+gofish
+go_fish.cpp
+go_fish.hpp
