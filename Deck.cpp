@@ -37,8 +37,8 @@ bool Deck::fishFor(Player* player, int rank, bool isPlayer){
 		p_hand->addCard(cards[n_cards-1]);
 		n_cards--;
 		
-		int r = cards[n_cards+1].getRank();
-		int s = cards[n_cards+1].getSuit();
+		int r = cards[n_cards].getRank();
+		int s = cards[n_cards].getSuit();
 		
 		string suit;
 		if(s == 0){
