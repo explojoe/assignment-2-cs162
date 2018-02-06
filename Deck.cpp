@@ -29,6 +29,7 @@ Deck::Deck(){
 	}
 }
 
+// used when drawing from the deck during gameplay
 bool Deck::fishFor(Player* player, int rank, bool isPlayer){
 	if(n_cards > 0){
 		Hand* p_hand = player->getHand();
@@ -73,15 +74,16 @@ bool Deck::fishFor(Player* player, int rank, bool isPlayer){
 }
 
 void Deck::shuffle(){
-		Card temp;
-		for(int i = 0; i < 52; i++){
-			int num = rand() % 52;
-			temp = cards[i];
-			cards[i] = cards[num];
-			cards[num] = temp;
-		}
+	Card temp;
+	for(int i = 0; i < 52; i++){
+		int num = rand() % 52;
+		temp = cards[i];
+		cards[i] = cards[num];
+		cards[num] = temp;
+	}
 }
 
+// used only for initialization
 void Deck::deal(Player* player, int num_cards){
 	Hand* p_hand = player->getHand();
 	for(int i = 0; i < num_cards; i++){

@@ -17,6 +17,7 @@
 #include "Player.hpp"
 #include "Game.hpp"
 #include "Hand.hpp"
+
 using namespace std;
 
 Player::Player(){
@@ -164,9 +165,7 @@ int Player::askForChoice(){
 			cout << "Can't ask for what you don't have one of." << endl;
 		}
 	}
-	
 }
-
 
 Hand* Player::getHand(){return &hand;}
 
